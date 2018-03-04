@@ -10,5 +10,11 @@ namespace NickZhaoSinglyLinkedList
     {
         public T Data;
         public SinglyLinkedListNode<T> Next;
+
+        public SinglyLinkedListNode(T data)
+        {
+            Data = data;
+        }
+            
     }
 }
