@@ -11,6 +11,7 @@ namespace NickZhaoSinglyLinkedList
         public SinglyLinkedListNode<T> Head;
         int count = 0;
         bool IsEmpty;
+        public int num = 2;
         public SinglyLinkedList()
         {
         }
@@ -85,22 +86,25 @@ namespace NickZhaoSinglyLinkedList
             else
             {
                 SinglyLinkedListNode<T> tempnode = Head;
+                SinglyLinkedListNode<T> prevnode = null;
                 for (int i = 0; i < index; i++)
                 {
+                    prevnode = tempnode;
                     tempnode = tempnode.Next;
                 }
-                return false;
+                prevnode.Next = tempnode.Next;
             }
+            return true;
         }
 
-        void clear()
+       public void clear()
         {
             Head = null;
             count = 0;
             IsEmpty = true;
         }
 
-        bool Contains(T value)
+      public  bool Contains(T value)
         {
             if(value == null)
             {
@@ -112,9 +116,14 @@ namespace NickZhaoSinglyLinkedList
             }
         }
 
-        void Find(T value)
+        public SinglyLinkedListNode<T> Find(T value)
         {
-            
+            SinglyLinkedListNode<T> tempNode = Head;
+            if (tempNode.Next.Data.CompareTo(value) == 0)
+            {
+                return tempNode;
+            }
+            return null;
         }
     }
 
